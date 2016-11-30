@@ -1,14 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Collectin</title>
+  <title>Collectin Post</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://use.fontawesome.com/8e56b09395.js"></script>
 </head>
 <body>
 
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">México</a>
+  <a href="#">Economía y Finanzas</a>
+  <a href="#">Deportes</a>
+  <a href="#">Espectáculos y Moda</a>
+</div>
+
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+<div id="logo">
+		<%= link_to root_path do %> 
+		<%= image_tag src="logo.png" %>
+		<% end %>
+</div>
+
+<hr class="grey">
+<div id="tageo">
+	<ul>
+		<li>
+			<a href="#">Olimpiadas</a>
+		</li>
+		<li>
+			<a href="#">Elecciones</a>
+		</li>
+		<li>
+			<a href="#">Rusia 2020</a>
+		</li>
+		<li>
+			<a href="#">MUAC</a>
+		</li>
+		<li>
+			<a href="#">ONU</a>
+		</li>
+		<li>
+			<a href="#">Pablo Picasso</a>
+		</li>
+	</ul>
+</div>
+<hr class="grey">
+
+
 <%= yield %>
+</div>
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>
 
 </body>
 </html>

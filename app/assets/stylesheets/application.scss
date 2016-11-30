@@ -1,0 +1,105 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,700');
+
+$blue: #2D4057;
+$green: #45C180;
+$grey: #BDBBBB;
+
+body {
+		font-family: 'Oswald', sans-serif;
+    transition: background-color .5s;
+    background-color: #fdfdfd;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    background-color: $blue;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 1.6em;
+    color: white;
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: $green;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 2.5em;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+    z-index: -1;
+}
+
+#logo	{
+	text-align: center;
+}
+
+hr {
+  border-width: 1.8px;
+  max-width: 800px;
+  margin: 5px auto;
+}
+hr.light {
+  border-color: white;
+}
+
+hr.grey {
+	border-color: $grey;
+}
+
+hr.green {
+  border-color: $green;
+}
+
+#tageo {
+	text-align: center;
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		li {
+			display: inline;
+			margin: 0 1rem;
+			a {
+				color: $grey;
+			}
+		}
+	}
+}
