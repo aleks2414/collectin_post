@@ -40,8 +40,8 @@
     <%= f.text_field :url %>
   </div>
   <div class="field">
-    <%= f.label :remote_photo_url, "or image URL" %><br/>
-    <%= f.text_field :remote_photo_url %>
+    <%= f.label :photo %><br>
+    <%= f.file_field :photo %>
   </div>
   <div class="field">
   <%= f.label :tag_list, "Tags (separated by commas)" %><br />

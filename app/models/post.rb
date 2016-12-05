@@ -13,8 +13,7 @@ class Post < ActiveRecord::Base
 
     paginates_per 12
 
-    mount_uploader :photo, PhotoUploader
-    validates :url, presence: true
+    # mount_uploader :photo, PhotoUploader
 
     private
 
@@ -29,7 +28,7 @@ class Post < ActiveRecord::Base
         if data
             self.title = data.title
             self.description = data.description
-            self.photo = data.images
+            self.photo = data.images.first
         end
 
     end
