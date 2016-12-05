@@ -8,6 +8,13 @@ class Post < ActiveRecord::Base
     before_save :scrape_with_grabbit
 
     acts_as_taggable
+    is_impressionable
+    acts_as_votable
+
+    paginates_per 12
+
+    mount_uploader :photo, PhotoUploader
+    validates :url, presence: true
 
     private
 

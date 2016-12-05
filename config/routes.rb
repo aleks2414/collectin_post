@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   resources :posts do
+  member do
+    put "like", to: "posts#upvote"
+    put "dislike", to: "posts#downvote"
+  end
     collection do
       get :mexico
       get :economia_y_finanzas

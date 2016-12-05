@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   # before_action :filter_admin!, except: [:index]
+  impressionist :actions=>[:show,:index]
 
 
   def mexico
@@ -27,6 +28,7 @@ def index
   else
     @posts = Post.all
   end
+    @posts = @posts.page params[:page]
 end
 
   # GET /posts/1
@@ -87,6 +89,19 @@ end
 def filter_admin!
  authenticate_user!
  redirect_to root_path, alert: "No tienes acceso" unless current_user.admin?
+end
+
+
+def upvote 
+  @post = Post.find(params[:id])
+  @post.upvote_by current_user
+  redirect_to :back
+end  
+
+def downvote
+  @post = Post.find(params[:id])
+  @post.downvote_by current_user
+  redirect_to :back
 end
 
   private

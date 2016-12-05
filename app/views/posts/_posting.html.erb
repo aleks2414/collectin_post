@@ -62,11 +62,24 @@
   <h4 class="title"><%= post.title %></h4>
   <p class="description"><%= post.description %></p>
   <h6 class="category"><%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join('    ') %></h6>
+  <h5><span class="fa fa-eye"></span> <%= post.impressionist_count(:filter=>:ip_address) %></h5>
+  <%= link_to like_post_path(post), method: :put do %>
+  Upvote
+  <%= post.get_upvotes.size %>
+  <% end %>
+
+  <%= link_to dislike_post_path(post), method: :put do %>
+  Downvote
+  <%= post.get_downvotes.size %>
+  <% end %>
 </div>  
 </div> <!-- end card -->
 </div>
 
 <% end %>
+
+
+<%= paginate @posts %>
 
 
 
@@ -90,20 +103,20 @@
 
   <tbody>
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.description %></td>
-        <td><%= post.date %></td>
-        <td><%= post.category %></td>
-        <td><%= post.paper %></td>
-        <td><%= post.user %></td>
-        <td><%= post.favorite %></td>
-        <td><%= post.url %></td>
-        <td><%= post.photo %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= post.title %></td>
+      <td><%= post.description %></td>
+      <td><%= post.date %></td>
+      <td><%= post.category %></td>
+      <td><%= post.paper %></td>
+      <td><%= post.user %></td>
+      <td><%= post.favorite %></td>
+      <td><%= post.url %></td>
+      <td><%= post.photo %></td>
+      <td><%= link_to 'Show', post %></td>
+      <td><%= link_to 'Edit', edit_post_path(post) %></td>
+      <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
