@@ -1,5 +1,23 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  # before_action :filter_admin!, except: [:index]
+
+
+  def mexico
+    @posts = Post.where(category: "México").order("created_at asc")
+  end
+
+  def economia_y_finanzas
+    @posts = Post.where(category: "Economía y Finanzas").order("created_at asc")
+  end
+
+  def deportes
+    @posts = Post.where(category: "Deportes").order("created_at asc")
+  end
+
+  def espectaculos_y_moda
+    @posts = Post.where(category: "Espectáculos y Moda").order("created_at asc")
+  end
 
   # GET /posts
   # GET /posts.json
@@ -25,6 +43,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
 
     respond_to do |format|
       if @post.save
@@ -60,6 +79,11 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+def filter_admin!
+ authenticate_user!
+ redirect_to root_path, alert: "No tienes acceso" unless current_user.admin?
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.

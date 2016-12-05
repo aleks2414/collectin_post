@@ -21,19 +21,15 @@
   </div>
   <div class="field">
     <%= f.label :date %><br>
-    <%= f.datetime_select :date %>
+    <%= f.date_field :date %>
   </div>
   <div class="field">
     <%= f.label :category %><br>
-    <%= f.text_field :category %>
+    <%= f.select :category, [["México"], ["Economía y Finanzas"], ["Deportes"], ["Espectáculos y Moda"]], {:prompt => 'Selecciona una opción'}, {:required => true}%>
   </div>
   <div class="field">
     <%= f.label :paper %><br>
-    <%= f.text_field :paper %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
+   <%= f.select :paper, [["El universal"], ["Reforma"], ["Milenio"], ["Proceso"], ["Publimetro"], ["Excélsior"], ["La Jornada"], ["El Informador"]], {:prompt => 'Selecciona una opción'}, {:required => true}%>
   </div>
   <div class="field">
     <%= f.label :favorite %><br>

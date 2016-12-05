@@ -119,3 +119,33 @@ hr.green {
         }
     }
 }
+
+.upper {
+    text-transform: uppercase;
+}
+
+.twitter {
+    color: #55acee;
+    &:hover {
+    opacity: .8;
+    }
+  }
+    .insta {
+    color: #e95950;
+    &:hover {
+    opacity: .8;
+    }
+  }
+    .you {
+    color: #bb0000;
+    &:hover {
+    opacity: .8;
+    }
+  }
+
+    .facebook {
+    color: #3b5998;
+    &:hover {
+    opacity: .8;
+    }
+  }
