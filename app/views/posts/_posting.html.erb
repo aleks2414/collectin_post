@@ -61,6 +61,7 @@
   <h6 class="category"><%= post.category %></h6>
   <h4 class="title"><%= post.title %></h4>
   <p class="description"><%= post.description %></p>
+  <h6 class="category"><%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join('    ') %></h6>
 </div>  
 </div> <!-- end card -->
 </div>

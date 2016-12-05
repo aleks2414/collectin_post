@@ -21,9 +21,13 @@ class PostsController < ApplicationController
 
   # GET /posts
   # GET /posts.json
-  def index
+def index
+  if params[:tag]
+    @posts = Post.tagged_with(params[:tag])
+  else
     @posts = Post.all
   end
+end
 
   # GET /posts/1
   # GET /posts/1.json
@@ -93,6 +97,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :description, :date, :category, :paper, :user_id, :favorite, :url, :photo)
+      params.require(:post).permit(:title, :description, :date, :category, :paper, :user_id, :favorite, :url, :photo, :tag_list)
     end
 end

@@ -43,6 +43,10 @@
     <%= f.label :photo %><br>
     <%= f.text_field :photo %>
   </div>
+  <div class="field">
+  <%= f.label :tag_list, "Tags (separated by commas)" %><br />
+  <%= f.text_field(:tag_list, value: @post.tag_list.join(","))%>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

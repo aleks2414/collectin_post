@@ -7,6 +7,8 @@ class Post < ActiveRecord::Base
 
     before_save :scrape_with_grabbit
 
+    acts_as_taggable
+
     private
 
     def scrape_with_grabbit
