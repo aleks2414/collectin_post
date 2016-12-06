@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-ui
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -319,5 +320,14 @@ hr.green {
     margin-bottom: 2rem;
 }
 
-.grid-item { width: 385px; }
+.grid-item { 
+  width: 385px; 
+  max-width: 99%;
+}
 .grid-item--width2 { width: 400px; }
+
+
+#somediv {
+  width: 98%;
+  max-width: 98%;
+}
