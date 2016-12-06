@@ -6,18 +6,22 @@ class PostsController < ApplicationController
 
   def mexico
     @posts = Post.where(category: "México").order("created_at asc")
+    @posts = @posts.page params[:page]
   end
 
   def economia_y_finanzas
     @posts = Post.where(category: "Economía y Finanzas").order("created_at asc")
+    @posts = @posts.page params[:page]
   end
 
   def deportes
     @posts = Post.where(category: "Deportes").order("created_at asc")
+    @posts = @posts.page params[:page]
   end
 
   def espectaculos_y_moda
     @posts = Post.where(category: "Espectáculos y Moda").order("created_at asc")
+    @posts = @posts.page params[:page]
   end
 
   # GET /posts

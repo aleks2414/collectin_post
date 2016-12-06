@@ -28,17 +28,14 @@
                       <h6 class="date"><%= post.date %></h6>
                     
                     <div class="">
-                      <%= post.description %>
+                      <div class="back"><%= post.description %></div>
                       <div class="tageo">
                       <h6 class="category"><%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join('    ') %></h6>
                       </div>
+                      <div class="impre">
                         <h5><span class="fa fa-eye"></span> <%= post.impressionist_count(:filter=>:ip_address) %></h5>
-                    </div>
-                </div>
-                <div class="card-read-more">
-                    <div class="btn btn-link btn-block">
-                    </div>
-<div class="social-line social-line-visible" data-buttons="4">
+                      </div>
+                      <div class="social-line social-line-visible" data-buttons="4">
     <button class="btn btn-social btn-facebook">
       <a class="icon-facebook" rel="nofollow"
       href="http://www.facebook.com/"
@@ -88,8 +85,12 @@
 </a>
 </button>
 </div>
-
+                    </div>
                 </div>
+                <!-- <div class="card-read-more">
+                    <div class="btn btn-link btn-block">
+                    </div>
+                </div> -->
             </div>
         </div>
         <% end %>

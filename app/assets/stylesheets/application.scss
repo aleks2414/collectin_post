@@ -208,7 +208,7 @@ hr.green {
 
 
 .img-card {
-    .votable {
+    .derecho {
     position: absolute;
     margin-top: 1rem;
     padding-left: 1rem;
@@ -220,7 +220,7 @@ hr.green {
 }
 
 .img-card {
-    .derecho {
+    .votable {
     position: absolute;
     margin-top: 1rem;
     padding-left: 84%;
@@ -248,8 +248,10 @@ hr.green {
 
 .tageo {
     position: absolute;
-    margin-top: 1rem;
-    padding-left: 50%;
+}
+
+.impre {
+    padding-left: 91%;
 }
 
 .card .header .social-line {
@@ -305,4 +307,8 @@ hr.green {
   clear: both;
   display: table;
   content: " ";
+}
+
+.back {
+    margin-bottom: 2rem;
 }
