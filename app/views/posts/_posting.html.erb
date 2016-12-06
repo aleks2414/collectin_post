@@ -39,7 +39,7 @@
       <a class="icon-facebook" rel="nofollow"
       href="http://www.facebook.com/"
       onclick="popUp=window.open(
-        'http://www.facebook.com/sharer.php?u=http://example.com',
+        'http://www.facebook.com/sharer.php?u=<%= post.url %>',
         'popupwindow',
         'scrollbars=yes,width=800,height=400');
       popUp.focus();
@@ -51,7 +51,7 @@
     <a class="icon-twitter" rel="nofollow"
     href="http://twitter.com/"
     onclick="popUp=window.open(
-      'http://twitter.com/intent/tweet?text=\'[Page Title]\' via @[handle] - [url]',
+      'http://twitter.com/intent/tweet?text=\'<%= post.title %>\' via CollectinPost - <%= post.url %>',
       'popupwindow',
       'scrollbars=yes,width=800,height=400');
     popUp.focus();
@@ -63,7 +63,7 @@
   <a class="icon-pinterest" rel="nofollow"
   href="http://www.pinterest.com/"
   onclick="popUp=window.open(
-    'http://pinterest.com/pin/create/button/?url=http://example.com&amp;media=[full image url]&amp;description=[page title]',
+    'http://pinterest.com/pin/create/button/?url=<%= post.url %>&amp;media=<%= post.photo.to_s %>&amp;description=<%= post.title %>',
     'popupwindow',
     'scrollbars=yes,width=800,height=400');
   popUp.focus();
@@ -75,7 +75,7 @@
   <a class="icon-gplus" rel="nofollow"
   href="http://www.plus.google.com/"
   onclick="popUp=window.open(
-    'https://plus.google.com/share?url=http://example.com',
+    'https://plus.google.com/share?url=<%= post.url %>',
     'popupwindow',
     'scrollbars=yes,width=800,height=400');
   popUp.focus();

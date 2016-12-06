@@ -51,24 +51,9 @@
 <hr class="grey">
 <div id="tageo">
 	<ul>
-		<li>
-			<a href="#">Olimpiadas</a>
-		</li>
-		<li>
-			<a href="#">Elecciones</a>
-		</li>
-		<li>
-			<a href="#">Rusia 2020</a>
-		</li>
-		<li>
-			<a href="#">MUAC</a>
-		</li>
-		<li>
-			<a href="#">ONU</a>
-		</li>
-		<li>
-			<a href="#">Pablo Picasso</a>
-		</li>
+  <% tag_cloud Post.tag_counts.order('count DESC').limit(7), %w[s m l] do |tag, css_class| %>
+    <li> <%= link_to tag.name, tag_path(tag.name), class: css_class %> </li>
+  <% end %>
 	</ul>
 </div>
 <hr class="grey">
