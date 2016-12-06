@@ -25,6 +25,12 @@ body {
 		font-family: 'Oswald', sans-serif;
     transition: background-color .5s;
     background-color: #fdfdfd;
+    a {
+    &:hover {
+    color: $blue;
+    background-color: transparent;
+  }
+  }
 }
 
 .sidenav {
@@ -312,3 +318,6 @@ hr.green {
 .back {
     margin-bottom: 2rem;
 }
+
+.grid-item { width: 385px; }
+.grid-item--width2 { width: 400px; }
