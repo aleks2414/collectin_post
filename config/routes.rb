@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get :economia_y_finanzas
       get :deportes
       get :espectaculos_y_moda
+      get :favorites
     end
   end
   devise_for :users

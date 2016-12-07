@@ -218,10 +218,10 @@ hr.green {
     .derecho {
     position: absolute;
     margin-top: 1rem;
-    padding-left: 1rem;
+    padding-left: 84%;
     a {
         color: white;
-        font-size: 1em;
+        font-size: 1.1em;
     }
     }
 }
@@ -232,8 +232,8 @@ hr.green {
     margin-top: 1rem;
     padding-left: 84%;
     a {
-        color: white;
-        font-size: 1em;
+        color: $green;
+        font-size: 1.1em;
     }
     }
 }

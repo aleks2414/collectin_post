@@ -9,6 +9,10 @@ class PostsController < ApplicationController
     @posts = @posts.page params[:page]
   end
 
+  def favorites
+    @posts = current_user.find_up_voted_items
+  end
+
   def economia_y_finanzas
     @posts = Post.where(category: "Economía y Finanzas").order("created_at asc")
     @posts = @posts.page params[:page]
@@ -98,13 +102,13 @@ end
 
 def upvote 
   @post = Post.find(params[:id])
-  @post.upvote_by current_user
+  @post.liked_by current_user
   redirect_to :back
 end  
 
 def downvote
   @post = Post.find(params[:id])
-  @post.downvote_by current_user
+  @post.downvote_from current_user
   redirect_to :back
 end
 
