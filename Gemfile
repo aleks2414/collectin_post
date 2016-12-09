@@ -31,6 +31,7 @@ gem 'impressionist'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'kaminari'
 gem 'carrierwave'
+gem 'commontator'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

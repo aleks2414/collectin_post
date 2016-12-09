@@ -10,6 +10,7 @@ class Post < ActiveRecord::Base
     acts_as_taggable
     is_impressionable
     acts_as_votable
+    acts_as_commontable
     
 
     paginates_per 12

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
   end
   devise_for :users
+  mount Commontator::Engine => '/commontator'
   get 'tags/:tag', to: 'posts#index', as: :tag
   get 'welcome/index'
 
