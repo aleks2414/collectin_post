@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  # before_action :filter_admin!, except: [:index]
+  before_action :filter_admin!, only: [:new, :edit]
   impressionist :actions=>[:show,:index]
 
 
