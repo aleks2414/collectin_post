@@ -31,10 +31,7 @@
     <%= f.label :paper %><br>
    <%= f.select :paper, [["El universal"], ["Reforma"], ["Milenio"], ["Proceso"], ["Publimetro"], ["Excélsior"], ["La Jornada"], ["El Informador"]], {:prompt => 'Selecciona una opción'}, {:required => true}%>
   </div>
-  <div class="field">
-    <%= f.label :favorite %><br>
-    <%= f.check_box :favorite %>
-  </div>
+
   <div class="field">
     <%= f.label :url %><br>
     <%= f.text_field :url %>

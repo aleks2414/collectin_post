@@ -24,6 +24,7 @@
  	Cerrar Sesión
  	</a></li>
   <li><a href="<%= favorites_posts_path %>">Mis favoritos</a></li>
+  <li><%= link_to 'Nuevo Post', new_post_path %></li>
  	<% else %>
  	<li><a href="<%= new_user_session_path %>"> Iniciar Sesión </a></li>
  	<li><a href="<%= new_user_registration_path %>"> Registrarse </a></li>

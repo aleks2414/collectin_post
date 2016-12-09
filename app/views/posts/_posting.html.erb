@@ -1,135 +1,78 @@
-
-<div id="somediv" title="Collectin Post" style="display:none;">
-    <iframe id="thedialog" width="350" height="350"></iframe>
-</div>
-
-<div class="grid">
+<div class="container">
   <% @posts.each do |post| %>
-  <div class="col-xs-12 col-sm-4 grid-item">
-    <div class="card">
+  <div class="col-xs-12 col-sm-6 col-md-4">
+    <div id="marco">
+      <div class="news">
+        <h6>Por: <span class="green2"> <%= post.paper %></span> </h6>
+        <% if post.date.present? %>
+        <h6><%= post.try(:date).strftime(" %b-%d-%Y") %> </h6>
+        <% end %>
+      </div>
       <div class="img-card">
 
-<% if user_signed_in? %>
-<% if current_user.disliked? post %>
+        <% if user_signed_in? %>
+        <% if current_user.disliked? post %>
         <div class="votable">
           <%= link_to like_post_path(post), method: :put do %>
-          <span class="fa fa-heart-o" aria-hidden="true"></span>
+          <span class="fa fa-inbox" aria-hidden="true"></span>
           <%#= post.get_upvotes.size %>
           <% end %>
         </div>
-<% else %>
+        <% else %>
         <div class="derecho">
           <%= link_to dislike_post_path(post), method: :put do %>
-          <span class="fa fa-heart" aria-hidden="true"></span>
+          <span class="fa fa-inbox" aria-hidden="true"></span>
           <%#= post.get_downvotes.size %>
           <% end %>
         </div>
-<% end %>
-<% else %>
+        <% end %>
+        <% else %>
         <div class="votable">
           <%= link_to new_user_session_path do %>
           <span class="fa fa-heart-o" aria-hidden="true"></span>
         </div>
         <% end %>
-<% end %>
+        <% end %>
 
         <%= image_tag post.photo.to_s %>
       </div>
-      <br />
-      <div class="card-content">
+      <div class="marco_content">
         <h6 class="category"><%= post.category %></h6>
+        <%= link_to post do %>
         <h4 class="card-title"><%= post.title %></h4>
-        <h6 class="date"><%= post.date %></h6>
-
-        <div class="">
-          <div class="back"><%= post.description %></div>
-          <div class="tageo">
-            <h6 class="category"><%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join('    ') %></h6>
-          </div>
+        <% end %>
+        <div class="back"><%= post.description.truncate(90) %></div>
+      </div>
           <div class="impre">
             <h5><span class="fa fa-eye"></span> <%= post.impressionist_count(:filter=>:ip_address) %></h5>
           </div>
-          <div class="social-line social-line-visible" data-buttons="4">
-            <button class="btn btn-social btn-facebook">
-              <a class="icon-facebook" rel="nofollow"
-              href="http://www.facebook.com/"
-              onclick="popUp=window.open(
-                'http://www.facebook.com/sharer.php?u=<%= post.url %>',
-                'popupwindow',
-                'scrollbars=yes,width=800,height=400');
-              popUp.focus();
-              return false">
-              <i class="fa fa-facebook facebook"></i>
-            </a>
-          </button>
-          <button class="btn btn-social btn-twitter">
-            <a class="icon-twitter" rel="nofollow"
-            href="http://twitter.com/"
-            onclick="popUp=window.open(
-              'http://twitter.com/intent/tweet?text=\'<%= post.title %>\' via CollectinPost - <%= post.url %>',
-              'popupwindow',
-              'scrollbars=yes,width=800,height=400');
-            popUp.focus();
-            return false">
-            <i class="fa fa-twitter twitter"></i>
-          </a>
-        </button>
-        <button class="btn btn-social btn-pinterest">
-          <a class="icon-pinterest" rel="nofollow"
-          href="http://www.pinterest.com/"
-          onclick="popUp=window.open(
-            'http://pinterest.com/pin/create/button/?url=<%= post.url %>&amp;media=<%= post.photo.to_s %>&amp;description=<%= post.title %>',
-            'popupwindow',
-            'scrollbars=yes,width=800,height=400');
-          popUp.focus();
-          return false">
-          <i class="fa fa-pinterest you"></i>
-        </a>
-      </button>
-      <button class="btn btn-social btn-google">
-        <a class="icon-gplus" rel="nofollow"
-        href="http://www.plus.google.com/"
-        onclick="popUp=window.open(
-          'https://plus.google.com/share?url=<%= post.url %>',
-          'popupwindow',
-          'scrollbars=yes,width=800,height=400');
-        popUp.focus();
-        return false">
-        <i class="fa fa-google-plus you"></i>
-      </a>
-    </button>
+        <div class="taging">
+        <h6 class="category"><%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join('    ') %></h6>
+      </div>
+    </div>
   </div>
+  <% end %>
 </div>
-</div>
-                <div class="card-read-more">
-                    <div class="btn btn-link btn-block">
-                      <a href="<%= post.url %>" class="test">Ver más</a><br>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <% end %>
-              
+
+
+
+
+
+  
+              <div class="centrar">
               <% unless current_page?(favorites_posts_path) %>
               <%= paginate @posts %>
               <% end %>
+              </div>
 
               
-            </div>
 
 
             <br><br>
-
+  
+            <% if current_user.admin? %>
             <%= link_to 'New Post', new_post_path %>
+            <% end %>
 
-
-
-<script>
-$('.grid').masonry({
-// options
-itemSelector: '.grid-item',
-columnWidth: 200
-});
-</script>
 
 

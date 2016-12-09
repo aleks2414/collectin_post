@@ -1,49 +1,86 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="col-xs12 col-md-10 col-md-offset-1">
+  <div id="marco">
+    <div class="news">
+      <h5>Por: <span class="green2"> <%= @post.paper %></span></h5>
+      <% if @post.date.present? %>
+        <h6><%= @post.try(:date).strftime(" %b-%d-%Y") %> </h6>
+        <% end %>
+    </div>
+    <div class="img-card">
+        <%= image_tag @post.photo.to_s %>
+      </div>
+      <div class="card-content">
+        <h6 class="category"><%= @post.category %></h6>
+        <h4 class="card-title"><%= @post.title %></h4>
+        <div class="back"><%= @post.description %></div>
+      </div>
+      <div class="center">
+      <div class="button">
+        <a href="<%= @post.url %>">Ver publicación original</a>
+      </div>
+      </div>
+      <div class="share">
+        <h5>Comparte: </h5>
+        <div class="social-line" data-buttons="4">
+            
+              <a class="icon-facebook" rel="nofollow"
+              href="http://www.facebook.com/"
+              onclick="popUp=window.open(
+                'http://www.facebook.com/sharer.php?u=<%= @post.url %>',
+                'popupwindow',
+                'scrollbars=yes,width=800,height=400');
+              popUp.focus();
+              return false">
+              <i class="fa fa-facebook fa-lg facebook"></i>
+            </a>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
+            <a class="icon-twitter" rel="nofollow"
+            href="http://twitter.com/"
+            onclick="popUp=window.open(
+              'http://twitter.com/intent/tweet?text=\'<%= @post.title %>\' via CollectinPost - <%= @post.url %>',
+              'popupwindow',
+              'scrollbars=yes,width=800,height=400');
+            popUp.focus();
+            return false">
+            <i class="fa fa-twitter fa-lg twitter"></i>
+          </a>
 
-<p>
-  <strong>Date:</strong>
-  <%= @post.date %>
-</p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @post.category %>
-</p>
+          <a class="icon-pinterest" rel="nofollow"
+          href="http://www.pinterest.com/"
+          onclick="popUp=window.open(
+            'http://pinterest.com/pin/create/button/?url=<%= @post.url %>&amp;media=<%= @post.photo.to_s %>&amp;description=<%= @post.title %>',
+            'popupwindow',
+            'scrollbars=yes,width=800,height=400');
+          popUp.focus();
+          return false">
+          <i class="fa fa-pinterest fa-lg you"></i>
+        </a>
 
-<p>
-  <strong>Paper:</strong>
-  <%= @post.paper %>
-</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @post.user %>
-</p>
+        <a class="icon-gplus" rel="nofollow"
+        href="http://www.plus.google.com/"
+        onclick="popUp=window.open(
+          'https://plus.google.com/share?url=<%= @post.url %>',
+          'popupwindow',
+          'scrollbars=yes,width=800,height=400');
+        popUp.focus();
+        return false">
+        <i class="fa fa-google-plus fa-lg you"></i>
+      </a>
 
-<p>
-  <strong>Favorite:</strong>
-  <%= @post.favorite %>
-</p>
+  </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Url:</strong>
-  <%= @post.url %>
-</p>
 
-<p>
-  <strong>Photo:</strong>
-  <%= @post.photo %>
-</p>
+<% if current_user.admin? %>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
+
+<% end %>
