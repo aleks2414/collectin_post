@@ -38,7 +38,7 @@
       <div class="marco_content">
         <h6 class="category"><%= post.category %></h6>
         <%= link_to post do %>
-        <h4 class="card-title"><%= post.title %></h4>
+        <h4 class="card-title"><%= post.title.truncate(60) %></h4>
         <% end %>
         <div class="back"><%= post.description.truncate(90) %></div>
       </div>
