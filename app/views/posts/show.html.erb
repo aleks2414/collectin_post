@@ -94,6 +94,8 @@
 <% if current_user && current_user.admin? %>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Back', posts_path %> 
+<%= link_to 'Destroy', @post, method: :delete, data: { confirm: '¿Estás seguro?' } %>
+
 
 <% end %>
