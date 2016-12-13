@@ -9,31 +9,33 @@
       </div>
       <div class="img-card">
 
-        <% if user_signed_in? %>
-        <% if current_user.disliked? post %>
-        <div class="votable">
-          <%= link_to like_post_path(post), method: :put do %>
-          <span class="fa fa-inbox" aria-hidden="true"></span>
-          <%#= post.get_upvotes.size %>
-          <% end %>
-        </div>
-        <% else %>
-        <div class="derecho">
-          <%= link_to dislike_post_path(post), method: :put do %>
-          <span class="fa fa-inbox" aria-hidden="true"></span>
-          <%#= post.get_downvotes.size %>
-          <% end %>
-        </div>
-        <% end %>
-        <% else %>
-        <div class="votable">
-          <%= link_to new_user_session_path do %>
-          <span class="fa fa-inbox" aria-hidden="true"></span>
-        </div>
-        <% end %>
-        <% end %>
-
+      <% if user_signed_in? %>
+  <% if current_user.liked? post %>
+    <div class="derecho">
+      <%= link_to dislike_post_path(post), method: :put do %>
+        <span class="fa fa-inbox" aria-hidden="true"></span>
+        <%#= post.get_downvotes.size %>
+  <% end %>
+    </div>
+  <% else %>
+    <div class="votable">
+      <%= link_to like_post_path(post), method: :put do %>
+        <span class="fa fa-inbox" aria-hidden="true"></span>
+        <%#= post.get_upvotes.size %>
+      <% end %>
+    </div>
+  <% end %>
+<% else %>
+<div class="votable">
+  <%= link_to new_user_session_path do %>
+  <span class="fa fa-inbox" aria-hidden="true"></span>
+  <% end %>
+</div>
+<% end %>
+        
+        <%= link_to post do %>
         <%= image_tag post.photo.to_s %>
+        <% end %>
       </div>
       <div class="marco_content">
         <h6 class="category"><%= post.category %></h6>

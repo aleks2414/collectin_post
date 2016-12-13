@@ -7,7 +7,7 @@
         <h6><%= @post.try(:date).strftime(" %b-%d-%Y") %> </h6>
         <% end %>
     </div>
-    <div class="img-card">
+    <div class="img-card2">
         <%= image_tag @post.photo.to_s %>
       </div>
       <div class="card-content">
@@ -15,11 +15,7 @@
         <h4 class="card-title"><%= @post.title %></h4>
         <div class="back"><%= @post.description %></div>
       </div>
-      <div class="center">
-      <div class="button">
-        <a href="<%= @post.url %>">Ver publicación original</a>
-      </div>
-      </div>
+
       <div class="share">
         <h5>Comparte: </h5>
         <div class="social-line" data-buttons="4">
@@ -72,6 +68,12 @@
       </a>
 
   </div>
+      </div>
+      <br><br><br>
+            <div class="center">
+      <div class="button">
+        <a href="<%= @post.url %>">Ver publicación original</a>
+      </div>
       </div>
       <br><br><br>
       <hr>
