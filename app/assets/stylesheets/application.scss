@@ -80,7 +80,7 @@ body {
     transition: margin-left .5s;
     padding: 16px 0;
     z-index: -1;
-    margin: 3rem 0;
+    margin: 0;
 }
 
 #logo	{
@@ -213,7 +213,7 @@ hr.green {
 }
 
 #marco {
-  height: 400px;
+  height: 350px;
   /*padding: 1rem 2rem 2rem 2rem;*/
   margin: 3rem 0;
   .category {
@@ -414,3 +414,70 @@ hr.green {
   font-size: 5.2rem;
   margin: 0px;
 }
+
+
+ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+  text-align: center;
+}
+
+ul.topnav li {
+  display: inline;
+}
+
+ul.topnav li a {
+  display: inline-block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 17px;
+  text-transform: uppercase;
+}
+
+ul.topnav li a:hover {background-color: #555;}
+
+ul.topnav li.icon {display: none;}
+
+@media screen and (max-width:680px) {
+  ul.topnav li:not(:first-child) {display: none;}
+  ul.topnav li.icon {
+    float: right;
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width:680px) {
+  ul.topnav.responsive {position: relative;}
+  ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.topnav.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: left;
+  }
+}
+
+#sesion {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline;
+      margin-left: 2rem;
+    }
+  }
+}
+
