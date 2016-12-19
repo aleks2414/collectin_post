@@ -85,6 +85,7 @@ body {
 
 #logo	{
 	text-align: center;
+  background-color: black;
 }
 
 hr {
@@ -522,6 +523,8 @@ ul.topnav li.icon {display: none;}
   letter-spacing: 0.05em;
   line-height: 1 !important;
   font-size: 45px !important;
+  color: rgb(235, 234, 234);
+  font-size: -webkit-xxx-large;
   }
   z-index: 1000;
   position: absolute;
