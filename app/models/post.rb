@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
     paginates_per 12
 
     extend FriendlyId
-    friendly_id :title, use: :slugged
+    friendly_id :title, use: [:finders, :slugged]
 
     # mount_uploader :photo, PhotoUploader
 

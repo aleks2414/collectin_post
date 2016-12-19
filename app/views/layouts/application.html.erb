@@ -32,6 +32,7 @@
  	<li><a href="<%= new_user_registration_path %>"> Registrarse </a></li>
  	<% end %> 
 </ul>
+<br><br>
 
 
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -52,6 +53,10 @@
 		<% end %>
 </div>
 
+<div id="banner" class="cover_escuela">
+  <h1>Mantente informado</h1>
+</div>
+
 <hr class="grey">
 <div id="tageo">
 	<ul>
@@ -68,11 +73,12 @@
 
 <script>
 function openNav() {
-    document.getElementById("mySidenav").style.width = "270px";
+   document.getElementById("mySidenav").style.display = "block";
+
 }
 
 function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("mySidenav").style.display = "none";
 }
 </script>
 
