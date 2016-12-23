@@ -1,58 +1,70 @@
-  <% @posts.each do |post| %>
-  <div class="col-xs-12 col-sm-6 col-md-3">
-    <div id="marco">
-      <div class="news">
-        <h6><span class="green2"> <%= post.paper %></span> </h6>
-        <% if post.date.present? %>
-        <h6><%= post.try(:created_at).strftime(" %b-%d-%Y") %> </h6>
-        <% end %>
-      </div>
-      <div class="img-card">
-
-        <% if user_signed_in? %>
-        <% if current_user.liked? post %>
-        <div class="derecho">
-          <%= link_to dislike_post_path(post), method: :put do %>
-          <span class="fa fa-inbox" aria-hidden="true"></span>
-          <%#= post.get_downvotes.size %>
-          <% end %>
+<br><br>
+<div class="container-fluid">
+  <div class="row-fluid">
+      <!-- inicio izq -->
+      <% @posts.each do |post| %>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div id="marco1">
+          <div class="collec">
+            <% if user_signed_in? %>
+            <% if current_user.liked? post %>
+            <div class="derecho">
+              <%= link_to dislike_post_path(post), method: :put do %>
+              <h5>[collect]</h5>
+              <%#= post.get_downvotes.size %>
+              <% end %>
+            </div>
+            <% else %>
+            <div class="votable">
+              <%= link_to like_post_path(post), method: :put do %>
+              <h5>[collect]</h5>
+              <%#= post.get_upvotes.size %>
+              <% end %>
+            </div>
+            <% end %>
+            <% else %>
+            <div class="votable">
+              <%= link_to new_user_session_path do %>
+              <h5>[collect]</h5>
+              <% end %>
+            </div>
+            <% end %>
+          </div>
+          <!-- imagen -->
+          <div class="img-card">
+            <%= link_to post do %>
+            <%= image_tag post.photo.to_s %>
+            <% end %>
+          </div>
+          <div class="cate">
+            <h6><%= post.category %></h6>
+          </div>
+          <div class="taging">
+            <h6 class="category">#<%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join('    #') %></h6>
+          </div>
+          <div class="content">
+            <%= link_to post do %>
+            <h4 class="card-title"><%= post.title.truncate(60) %></h4>
+            <% end %>
+            <div class="back"><%= post.description.truncate(90) %></div>
+          </div>
+          <div class="news">
+            <ul>
+              <li>
+                <h6 class="green2"><%= post.paper %></h6>
+              </li>
+              <li>
+                <h6><%= post.try(:created_at).strftime(" %b-%d-%Y") %> </h6>
+              </li>
+            </ul>
+            </div>
         </div>
-        <% else %>
-        <div class="votable">
-          <%= link_to like_post_path(post), method: :put do %>
-          <span class="fa fa-inbox" aria-hidden="true"></span>
-          <%#= post.get_upvotes.size %>
-          <% end %>
-        </div>
-        <% end %>
-        <% else %>
-        <div class="votable">
-          <%= link_to new_user_session_path do %>
-          <span class="fa fa-inbox" aria-hidden="true"></span>
-          <% end %>
-        </div>
-        <% end %>
-        
-        <%= link_to post do %>
-        <%= image_tag post.photo.to_s %>
-        <% end %>
       </div>
-      <div class="marco_content">
-        <h6 class="category"><%= post.category %></h6>
-        <%= link_to post do %>
-        <h4 class="card-title"><%= post.title.truncate(60) %></h4>
-        <% end %>
-        <div class="back"><%= post.description.truncate(90) %></div>
-      </div>
-      <div class="taging">
-        <h6 class="category">#<%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join('    #') %></h6>
-      </div>
-      <div class="impre">
-        <h5><span class="fa fa-eye"></span> <%= post.impressionist_count(:filter=>:ip_address) %></h5>
-      </div>
+      <% end %>
     </div>
-  </div>
-  <% end %>
+</div>
+
+
 
 
 

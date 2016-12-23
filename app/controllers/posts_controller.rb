@@ -19,6 +19,8 @@ class PostsController < ApplicationController
   end
 
   def deportes
+    # @poste = Post.where(category: "Deportes").order("created_at asc").limit(4).offset(4)
+    # @posta = Post.where(category: "Deportes").order("created_at asc").limit(4)
     @posts = Post.where(category: "Deportes").order("created_at asc")
     @posts = @posts.page params[:page]
   end
@@ -37,6 +39,7 @@ def index
     @posts = Post.all
   end
     @posts = @posts.page params[:page]
+
 end
 
   # GET /posts/1
