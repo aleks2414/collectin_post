@@ -1,13 +1,18 @@
 <div class="container">
   <div class="col-xs12 col-md-10 col-md-offset-1">
-  <div id="marco">
+  <div id="marco2">
     <div class="news">
-      <h5>Por: <span class="green2"> <%= @post.paper %></span></h5>
-      <% if @post.date.present? %>
-        <h6><%= @post.try(:date).strftime(" %b-%d-%Y") %> </h6>
-        <% end %>
+    <ul>
+      <li>
+        <h5><span class="green2"> <%= @post.paper %></span></h5>
+      </li>
+      <li>
+        <h6><%= @post.try(:created_at).strftime(" %b-%d-%Y") %> </h6>
+      </li>
+    </ul>
+      
     </div>
-    <div class="img-card2">
+    <div class="img-card">
         <%= image_tag @post.photo.to_s %>
       </div>
       <div class="card-content">
@@ -71,7 +76,7 @@
       </div>
       <br><br><br>
             <div class="center">
-      <div class="button">
+      <div class="button button_white button_block">
         <%= link_to "Ver publicación original", @post.url, :target => "_blank" %>
       </div>
       </div>
