@@ -19,7 +19,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-$blue: #2D4057;
+$blue: black;
 $green: #45C180;
 $grey: #BDBBBB;
 
@@ -265,18 +265,19 @@ hr.green {
 }
 
 #marco1 {
-  height: 450px;
+  /*height: 450px;*/
+  padding: 2rem;
 .img-card {
   width: 100%;
-  height:180px;
+  /*height:180px;*/
   border-top-left-radius:2px;
   border-top-right-radius:2px;
-  display:block;
-    overflow: hidden;
+/*  display:block;
+    overflow: hidden;*/
 }
 .img-card img{
   width: 100%;
-  height: 180px;
+  /*height: 180px;*/
   object-fit:cover;
   transition: all .25s ease;
 }
@@ -512,3 +513,5 @@ img-card {
 background-attachment: unset;
 }
 }
+
+.grid-item { width: 22%; }

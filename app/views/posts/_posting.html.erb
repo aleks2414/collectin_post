@@ -1,8 +1,71 @@
-<br><br>
-<div class="container-fluid">
-  <div class="row-fluid">
-      <!-- inicio izq -->
-      <% @posts.each do |post| %>
+<br><br><br>
+
+<div class="grid visible-md visible-lg">
+<% @posts.each do |post| %>
+  <div class="grid-item">
+    <div id="marco1">
+          <div class="collec">
+            <% if user_signed_in? %>
+            <% if current_user.liked? post %>
+            <div class="derecho">
+              <%= link_to dislike_post_path(post), method: :put do %>
+              <h5>[collect]</h5>
+              <%#= post.get_downvotes.size %>
+              <% end %>
+            </div>
+            <% else %>
+            <div class="votable">
+              <%= link_to like_post_path(post), method: :put do %>
+              <h5>[collect]</h5>
+              <%#= post.get_upvotes.size %>
+              <% end %>
+            </div>
+            <% end %>
+            <% else %>
+            <div class="votable">
+              <%= link_to new_user_session_path do %>
+              <h5>[collect]</h5>
+              <% end %>
+            </div>
+            <% end %>
+          </div>
+          <!-- imagen -->
+          <div class="img-card">
+            <%= link_to post do %>
+            <%= image_tag post.photo.to_s %>
+            <% end %>
+          </div>
+          <div class="cate">
+            <h6><%= post.category %></h6>
+          </div>
+          <div class="taging">
+            <h6 class="category">#<%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join('    #') %></h6>
+          </div>
+          <div class="content">
+            <%= link_to post do %>
+            <h4 class="card-title"><%= post.title.truncate(60) %></h4>
+            <% end %>
+            <div class="back"><%= post.description.truncate(90) %></div>
+          </div>
+          <div class="news">
+            <ul>
+              <li>
+                <h6 class="green2"><%= post.paper %></h6>
+              </li>
+              <li>
+                <h6><%= post.try(:created_at).strftime(" %b-%d-%Y") %> </h6>
+              </li>
+            </ul>
+            </div>
+        </div>
+
+  </div>
+  <% end %>
+</div>
+
+
+<div class="visible-xs visible-sm">
+  <% @posts.each do |post| %>
       <div class="col-xs-12 col-sm-6 col-md-3">
         <div id="marco1">
           <div class="collec">
@@ -61,11 +124,7 @@
         </div>
       </div>
       <% end %>
-    </div>
 </div>
-
-
-
 
 
 
@@ -83,6 +142,12 @@
   <br><br>
   
 
-
+<script>
+  $('.grid').masonry({
+  // options
+  itemSelector: '.grid-item',
+  columnWidth: 80
+});
+</script>
 
 
