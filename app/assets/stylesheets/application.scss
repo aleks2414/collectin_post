@@ -515,3 +515,22 @@ background-attachment: unset;
 }
 
 .grid-item { width: 22%; }
+
+.mini {
+  a {
+  font-size: .5em;
+  color: grey;
+}
+}
+
+.gol {
+  a {
+    margin-left: 3rem;
+  }
+}
+
+.logo {
+  img {
+  float: left;
+}
+}
