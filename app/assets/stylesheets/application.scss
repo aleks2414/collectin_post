@@ -100,6 +100,12 @@ body {
     background-color: black;
 
   }
+
+  .gol {
+    a {
+      margin-left: 0 !important;
+    }
+  }
 }
 
 #formario {
@@ -623,19 +629,11 @@ background-attachment: unset;
 
 .mini {
   a {
-  font-size: .5em;
+  font-size: .7em;
   color: grey;
 }
 }
 
-.gol {
-  a {
-    margin-left: 3rem;
-  }
-}
-
-.logo {
-  img {
-  float: left;
-}
+#rompe {
+  margin-right: 13rem;
 }
