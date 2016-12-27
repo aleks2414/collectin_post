@@ -371,7 +371,112 @@ hr.green {
 
 }
 
+#marco3 {
+  height: 450px;
+  padding: 2rem;
+.img-card {
+  width: 100%;
+  height:180px;
+  border-top-left-radius:2px;
+  border-top-right-radius:2px;
+  display:block;
+    overflow: hidden;
+}
+.img-card img{
+  width: 100%;
+  /*height: 180px;*/
+  object-fit:cover;
+  transition: all .25s ease;
+}
+.votable, .derecho {
+  position: absolute;
+  right: 3rem;
+  font-size: 1.2em;
+  background-color: $blue;
+  padding: 0 1rem;
+}
 
+
+.votable {
+  a {
+  color: white; 
+  &:hover {
+    color: $green;
+    background-color: $blue;
+    text-decoration: none;
+  }
+}
+}
+
+.derecho {
+  a {
+  color: $green; 
+  &:hover {
+    color: white;
+    background-color: $blue;
+    text-decoration: none;
+  }
+}
+}
+
+.cate {
+  h6 {
+    color: $green;
+    text-transform: uppercase;
+  }
+}
+
+.taging {
+  h6 {
+    color: grey;
+    a {
+      color: grey;
+    }
+  }
+}
+
+.content {
+  h4 {
+    color: white;
+    text-transform: uppercase;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    &:hover {
+      color: $green;
+    }
+  }
+  .back {
+    color: grey;
+  }
+}
+
+.news {
+  text-align: center;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      text-align: center;
+      display: inline;
+      float: left;
+      margin-right: 2rem;
+      h6 {
+        color: white;
+      }
+      .green2 {
+  color: $green;
+}
+    }
+  }
+}
+
+.impre {
+  h5 {
+    color: white;
+  }
+}
+
+}
 
 
 /*marco2*/
