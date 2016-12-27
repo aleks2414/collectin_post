@@ -79,6 +79,12 @@
 
 <div id= "banner" class="cover_<%=params[:action]%>">
   <h1>MANTENTE INFORMADO</h1>
+    <div class="form-inline global-search">
+    <%= form_tag search_posts_path, method: :get, role: "search" do %>
+      <%= text_field_tag :search, params[:search], class: "form-control", id: "k", placeholder: "Qué estás buscando?" %>
+      <%= submit_tag "Buscar", name: nil, class: "btn btn-default", id: "s" %>
+    <% end %>
+  </div>
 </div>
 
 

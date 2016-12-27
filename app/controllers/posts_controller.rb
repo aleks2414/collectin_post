@@ -3,6 +3,15 @@ class PostsController < ApplicationController
   before_action :filter_admin!, only: [:new, :edit]
   impressionist :actions=>[:show,:index]
 
+  def search
+    if params[:search].present?
+      @posts = Post.search(params[:search])
+    else
+      @posts = Post.all
+      @posts = @posts.page params[:page]
+    end
+
+  end
 
   def mexico
     @posts = Post.where(category: "México").order("created_at asc")

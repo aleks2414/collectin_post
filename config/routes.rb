@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :posts do
+    collection do
+      get 'search'
+  end
   member do
     put "like", to: "posts#upvote"
     put "dislike", to: "posts#downvote"

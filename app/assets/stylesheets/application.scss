@@ -21,7 +21,7 @@
 
 $blue: black;
 $green: #45C180;
-$grey: #BDBBBB;
+$grey: #bcbcbc;
 
 body {
   background-color: black;
@@ -183,44 +183,44 @@ body {
 
 .cover_index {
   background-image: image-url("innova_cover.jpg");
-  height: 45vh;
+  height: 55vh;
 }
 
 .cover_mexico {
   background-image: image-url("mexico.jpg");
-  height: 45vh;
+  height: 55vh;
 }
 
 .cover_economia_y_finanzas {
   background-image: image-url("money.jpg");
-  height: 45vh;
+  height: 55vh;
 }
 
 .cover_deportes {
   background-image: image-url("sports.jpg");
-  height: 45vh;
+  height: 55vh;
 }
 
 .cover_espectaculos_y_moda {
   background-image: image-url("shows.jpg");
-  height: 45vh;
+  height: 55vh;
 }
 
 .cover_favorites {
   background-image: image-url("innova_cover.jpg");
-  height: 45vh;
+  height: 55vh;
 }
 
-.cover_show {
+.cover_show, .cover_search {
   background-image: image-url("innova_cover.jpg");
-  height: 45vh;
+  height: 55vh;
 }
 
 #banner h1 {
   text-align: center;
   color: white;
   text-transform: uppercase;
-  padding: 20vh 5vw 0 5vw;
+  padding: 15vh 5vw 0 5vw;
   font-size: 4.5rem;
   margin: 0px;
 }
@@ -327,9 +327,9 @@ hr.green {
 
 .taging {
   h6 {
-    color: grey;
+    color: $grey;
     a {
-      color: grey;
+      color: $grey;
     }
   }
 }
@@ -344,7 +344,7 @@ hr.green {
     }
   }
   .back {
-    color: grey;
+    color: $grey;
   }
 }
 
@@ -434,9 +434,9 @@ hr.green {
 
 .taging {
   h6 {
-    color: grey;
+    color: $grey;
     a {
-      color: grey;
+      color: $grey;
     }
   }
 }
@@ -451,7 +451,7 @@ hr.green {
     }
   }
   .back {
-    color: grey;
+    color: $grey;
   }
 }
 
@@ -636,4 +636,55 @@ background-attachment: unset;
 
 #rompe {
   margin-right: 13rem;
+}
+
+.center {
+  text-align: center;
+  color: $grey;
+}
+
+#banner {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline;
+      float: left;
+    }
+  }
+}
+
+/* center search */
+ 
+   .global-search {
+    text-align:center;
+    padding:10px;
+  }
+   .global-search * {
+    display:inline-block;
+    margin-bottom:0;
+  }
+
+   .global-search .form-control {
+      width:120px;
+}
+
+   .global-search a {
+    display:block;
+    padding-top:10px;
+}
+
+
+
+@media (min-width:400px){
+   .global-search {
+    padding: 20px 0;
+    text-align:center;
+  }
+
+   .global-search .form-control {
+    width:300px;
+}
+
 }

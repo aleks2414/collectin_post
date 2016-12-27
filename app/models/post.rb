@@ -11,6 +11,8 @@ class Post < ActiveRecord::Base
     is_impressionable
     acts_as_votable
     acts_as_commontable
+
+    searchkick
     
 
     paginates_per 12
