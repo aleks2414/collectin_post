@@ -90,11 +90,13 @@
 
 <hr class="grey">
 <div id="tageo">
+<div class="container">
 	<ul>
   <% tag_cloud Post.tag_counts.order('count DESC').limit(7), %w[s m l] do |tag, css_class| %>
     <li> <%= link_to tag.name, tag_path(tag.name), class: css_class %> </li>
   <% end %>
 	</ul>
+</div>
 </div>
 
 
