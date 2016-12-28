@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+    searchkick
   belongs_to :user
 
     serialize :photo   # Store images array as YAML in the database
@@ -12,7 +13,7 @@ class Post < ActiveRecord::Base
     acts_as_votable
     acts_as_commontable
 
-    searchkick
+    
     
 
     paginates_per 12
