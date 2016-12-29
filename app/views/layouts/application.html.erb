@@ -54,6 +54,9 @@
       </ul>
       <ul class="nav navbar-nav">
         <% if user_signed_in? %>
+        <li class="mini <%= 'active' if current_page?(edit_user_registration_path) %>">
+          <a href="<%= edit_user_registration_path(@user) %>">Mi perfil</a>
+        </li>
         <li class=" mini gol <%= 'active' if current_page?(favorites_posts_path) %>"><a href="<%= favorites_posts_path %>">Mis favoritos</a></li>
         <li class="mini"> <a href="<%= destroy_user_session_path %>" data-method='delete'>
           Cerrar Sesión
