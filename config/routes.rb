@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       get :favorites
     end
   end
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   mount Commontator::Engine => '/commontator'
   get 'tags/:tag', to: 'posts#index', as: :tag
   get 'welcome/index'

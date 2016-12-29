@@ -64,6 +64,7 @@
         <% end %>
         <% else %>
         <li class="mini"><a href="<%= new_user_session_path %>"> Iniciar Sesión </a></li>
+        <li class="mini"><%= link_to "iniciar sesión con Facebook", user_facebook_omniauth_authorize_path %></li>
         <li class="mini"><a href="<%= new_user_registration_path %>"> Registrarse </a></li>
         <% end %> 
       </ul>
