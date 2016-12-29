@@ -144,6 +144,7 @@ body {
   &:hover {
     color: white;
     background-color: $blue;
+    text-decoration: none;
   }
 
   }
@@ -341,6 +342,7 @@ hr.green {
     font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
     &:hover {
       color: $green;
+      text-decoration: none;
     }
   }
   .back {
@@ -448,6 +450,7 @@ hr.green {
     font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
     &:hover {
       color: $green;
+      text-decoration: none;
     }
   }
   .back {
@@ -596,6 +599,13 @@ img-card {
   &:hover {
     color: $green;
     border-color: $green;
+  }
+  a {
+    color: white;
+    &hover {
+      color: $green;
+      text-decoration: none;
+    }
   }
 }
 
