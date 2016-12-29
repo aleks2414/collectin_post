@@ -29,6 +29,15 @@ body {
 }
 
 
+a {
+    &hover {
+      text-decoration: none;
+      background-color: transparent;
+      border: none;
+    }
+  }
+
+
 .navbar-custom {
   margin-bottom: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -591,6 +600,13 @@ img-card {
   outline: none;
   border: 2.1px solid;
   background-color: transparent;
+  a {
+    color: white;
+    &hover {
+      color: $green;
+      text-decoration: none;
+    }
+  }
 }
 
 .button_white {
@@ -599,13 +615,6 @@ img-card {
   &:hover {
     color: $green;
     border-color: $green;
-  }
-  a {
-    color: white;
-    &hover {
-      color: $green;
-      text-decoration: none;
-    }
   }
 }
 
