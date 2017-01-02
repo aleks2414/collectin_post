@@ -45,7 +45,7 @@ def index
   if params[:tag]
     @posts = Post.tagged_with(params[:tag])
   else
-    @posts = Post.all
+    @posts = Post.order("created_at asc")
   end
     @posts = @posts.page params[:page]
 
