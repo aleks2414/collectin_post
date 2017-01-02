@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   end
 
   def mexico
-    @posts = Post.where(category: "México").order("created_at asc")
+    @posts = Post.where(category: "México").order("created_at des")
     @posts = @posts.page params[:page]
   end
 
@@ -23,14 +23,14 @@ class PostsController < ApplicationController
   end
 
   def economia_y_finanzas
-    @posts = Post.where(category: "Economía y Finanzas").order("created_at asc")
+    @posts = Post.where(category: "Economía y Finanzas").order("created_at des")
     @posts = @posts.page params[:page]
   end
 
   def deportes
     # @poste = Post.where(category: "Deportes").order("created_at asc").limit(4).offset(4)
     # @posta = Post.where(category: "Deportes").order("created_at asc").limit(4)
-    @posts = Post.where(category: "Deportes").order("created_at asc")
+    @posts = Post.where(category: "Deportes").order("created_at des")
     @posts = @posts.page params[:page]
   end
 
@@ -45,7 +45,7 @@ def index
   if params[:tag]
     @posts = Post.tagged_with(params[:tag])
   else
-    @posts = Post.order("created_at asc")
+    @posts = Post.order("created_at des")
   end
     @posts = @posts.page params[:page]
 
